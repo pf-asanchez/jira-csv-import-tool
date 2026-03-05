@@ -1,0 +1,25 @@
+Project,Issue Type,Status,Summary,Parent,Complexity,Description,Label
+TA,Task,To Do,Template scenario 1: status remains Academic Complete with A/R balance,TA-201,Low,"Source: template
+Application: SIS
+Feature/Component: Academic complete
+Designated QA: <name>
+Scenario Type: Positive
+Manual vs Automatable: can-be-automated
+Complexity (sheet): Low
+Manual Time Execution: 2-5 min
+Environment Link: <env-url>
+
+Scenario Name:
+Template scenario 1 details.",example
+TA,Task,To Do,Template scenario 2: status remains Academic Complete on next timer run,TA-201,Low,"Source: template
+Application: SIS
+Feature/Component: Academic complete
+Designated QA: <name>
+Scenario Type: Positive
+Manual vs Automatable: can-be-automated
+Complexity (sheet): Low
+Manual Time Execution: 2-5 min
+Environment Link: <env-url>
+
+Scenario Name:
+Template scenario 2 details.",example
