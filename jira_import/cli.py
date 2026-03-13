@@ -4,12 +4,14 @@ import argparse
 import os
 from pathlib import Path
 
+from jira_import.textio import read_text_with_fallback
+
 
 def load_dotenv(path: Path) -> None:
     if not path.exists():
         return
 
-    for line in path.read_text(encoding="utf-8-sig").splitlines():
+    for line in read_text_with_fallback(path).splitlines():
         stripped = line.strip()
         if not stripped or stripped.startswith("#") or "=" not in stripped:
             continue

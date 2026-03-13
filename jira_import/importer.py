@@ -5,6 +5,7 @@ import csv
 import logging
 from dataclasses import dataclass
 from pathlib import Path
+from io import StringIO
 from typing import Any
 
 from jira_import.issue_fields import (
@@ -15,6 +16,7 @@ from jira_import.issue_fields import (
 )
 from jira_import.jira_client import JiraClient
 from jira_import.logging_utils import log_event
+from jira_import.textio import read_text_with_fallback
 
 BULK_MAX_ISSUES = 50
 
@@ -131,9 +133,9 @@ def mark_pending_batch_failed(
 
 
 def read_csv_rows(csv_path: Path) -> list[dict[str, str]]:
-    with csv_path.open("r", encoding="utf-8-sig", newline="") as handle:
-        reader = csv.DictReader(handle)
-        return list(reader)
+    csv_text = read_text_with_fallback(csv_path)
+    reader = csv.DictReader(StringIO(csv_text, newline=""))
+    return list(reader)
 
 
 def resolve_project_key_for_import(
